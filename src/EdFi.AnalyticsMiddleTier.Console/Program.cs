@@ -21,7 +21,7 @@ namespace EdFi.AnalyticsMiddleTier.Console
 {
     internal class Program
     {
-
+        private const string PASSWORD = "testing to see if this is picked up by linters";
         private static readonly string _odsVersionNotSupportedMessage
             = "Unable to determine the ODS database version. Please submit a ticket in Tracker for assistance: https://tracker.ed-fi.org/projects/EDFI." + System.Environment.NewLine + System.Environment.NewLine
                                                                                                                                                          + "Supported versions:" + System.Environment.NewLine
