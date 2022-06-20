@@ -26,13 +26,13 @@ env:
   SQLSERVER_DATABASE_DS32: "AnalyticsMiddleTier_Testing_Ds32"
   SQLSERVER_DATABASE_DS33: "AnalyticsMiddleTier_Testing_Ds33"
   SQLSERVER_INTEGRATED_SECURITY: "false"
-  SQLSERVER_USER: ${{ secrets.MSSQL_USER }}
+  SQLSERVER_USER: "sa"
   SQLSERVER_PASS: ${{ secrets.MSSQL_PWD }}
   POSTGRES_HOST: "localhost"
   POSTGRES_DATABASE_DS32: "edfi_ods_tests_ds32"
   POSTGRES_DATABASE_DS33: "edfi_ods_tests_ds33"
   POSTGRES_PORT: "5432"
-  POSTGRES_USER: ${{ secrets.POSTGRESQL_USER }}
+  POSTGRES_USER: "postgres"
   POSTGRES_PASS: ${{ secrets.POSTGRESQL_PWD }}
   POSTGRES_POOLING: "false"
 
@@ -75,14 +75,8 @@ jobs:
           .\build.ps1 build -Configuration ${{ env.CONFIGURATION }} -Version ${{ env.BUILD_VERSION }} -BuildCounter ${{ github.run_number }}
         shell: pwsh
 
-      - name: Temporary logging 1
-        run: ls ${GITHUB_WORKSPACE}
-
       - name: Temporary logging 2
         run: ls ${GITHUB_WORKSPACE}/src/EdFi.AnalyticsMiddleTier.Console/
-
-      - name: Temporary logging 3
-        run: ls -r ${GITHUB_WORKSPACE}/src/EdFi.AnalyticsMiddleTier.Console/bin
 
       - name: Upload SARIF file - Console
         uses: github/codeql-action/upload-sarif@v2
