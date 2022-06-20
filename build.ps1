@@ -124,7 +124,7 @@ function AssemblyInfo {
 function Compile {
     Invoke-Execute {
         dotnet --info
-        dotnet build $solutionRoot -c $Configuration --nologo
+        dotnet build $solutionRoot -c $Configuration --nologo -v d
     }
 }
 
