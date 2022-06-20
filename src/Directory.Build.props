@@ -7,6 +7,6 @@
         <Copyright>Copyright © 2022, Ed-Fi Alliance, LLC, and contributors</Copyright>
         <VersionPrefix>5.2.1</VersionPrefix>
         <VersionSuffix></VersionSuffix>
-        <ErrorLog>results.sarif</ErrorLog>
+        <ErrorLog>results.sarif,version=2.1</ErrorLog>
     </PropertyGroup>
 </Project>
