@@ -51,6 +51,6 @@ dotnet_style_require_accessibility_modifiers=for_non_interface_members:suggestio
 
 # SFUQUA customization June, 2022
 # dotnet_diagnostic.SA1633.severity=none   # this tries to enforce a different style of file header
-csharp_using_directive_placement=inside_namespace:error
+csharp_using_directive_placement=outside_namespace:error
 dotnet_diagnostic.IDE0065.severity=error
 # dotnet_diagnostic.SA1200.severity=none
