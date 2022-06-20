@@ -82,7 +82,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           # Path to SARIF file relative to the root of the repository
-          sarif_file: ${GITHUB_WORKSPACE}/src/EdFi.AnalyticsMiddleTier.Console/results.sarif
+          sarif_file: ${{ GITHUB_WORKSPACE }}/src/EdFi.AnalyticsMiddleTier.Console/results.sarif
           # Optional category for the results
           # Used to differentiate multiple results for one commit
           category: EdFi.AnalyticsMiddleTier.Console
@@ -91,7 +91,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           # Path to SARIF file relative to the root of the repository
-          sarif_file: ${GITHUB_WORKSPACE}/src/EdFi.AnalyticsMiddleTier.Common/results.sarif
+          sarif_file: ${{ GITHUB_WORKSPACE }}/src/EdFi.AnalyticsMiddleTier.Common/results.sarif
           # Optional category for the results
           # Used to differentiate multiple results for one commit
           category: EdFi.AnalyticsMiddleTier.Common
@@ -100,7 +100,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           # Path to SARIF file relative to the root of the repository
-          sarif_file: ${GITHUB_WORKSPACE}/src/EdFi.AnalyticsMiddleTier.DataStandard2/results.sarif
+          sarif_file: ${{ GITHUB_WORKSPACE }}/src/EdFi.AnalyticsMiddleTier.DataStandard2/results.sarif
           # Optional category for the results
           # Used to differentiate multiple results for one commit
           category: EdFi.AnalyticsMiddleTier.DataStandard2
@@ -109,7 +109,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           # Path to SARIF file relative to the root of the repository
-          sarif_file: ${GITHUB_WORKSPACE}/src/EdFi.AnalyticsMiddleTier.DataStandard31/results.sarif
+          sarif_file: ${{ GITHUB_WORKSPACE }}/src/EdFi.AnalyticsMiddleTier.DataStandard31/results.sarif
           # Optional category for the results
           # Used to differentiate multiple results for one commit
           category: EdFi.AnalyticsMiddleTier.DataStandard31
@@ -118,7 +118,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           # Path to SARIF file relative to the root of the repository
-          sarif_file: ${GITHUB_WORKSPACE}/src/EdFi.AnalyticsMiddleTier.DataStandard32/results.sarif
+          sarif_file: ${{ GITHUB_WORKSPACE }}/src/EdFi.AnalyticsMiddleTier.DataStandard32/results.sarif
           # Optional category for the results
           # Used to differentiate multiple results for one commit
           category: EdFi.AnalyticsMiddleTier.DataStandard32
@@ -127,7 +127,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           # Path to SARIF file relative to the root of the repository
-          sarif_file: ${GITHUB_WORKSPACE}/src/EdFi.AnalyticsMiddleTier.DataStandard33/results.sarif
+          sarif_file: ${{ GITHUB_WORKSPACE }}/src/EdFi.AnalyticsMiddleTier.DataStandard33/results.sarif
           # Optional category for the results
           # Used to differentiate multiple results for one commit
           category: EdFi.AnalyticsMiddleTier.DataStandard33
@@ -136,7 +136,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           # Path to SARIF file relative to the root of the repository
-          sarif_file: ${GITHUB_WORKSPACE}/src/EdFi.AnalyticsMiddleTier.Tests/results.sarif
+          sarif_file: ${{ GITHUB_WORKSPACE }}/src/EdFi.AnalyticsMiddleTier.Tests/results.sarif
           # Optional category for the results
           # Used to differentiate multiple results for one commit
           category: EdFi.AnalyticsMiddleTier.Tests
