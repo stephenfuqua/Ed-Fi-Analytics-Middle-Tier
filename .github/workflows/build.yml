@@ -79,7 +79,7 @@ jobs:
         run: ls ${GITHUB_WORKSPACE}/src/EdFi.AnalyticsMiddleTier.Console/
 
       - name: Upload SARIF file - Console
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: src/EdFi.AnalyticsMiddleTier.Console/results.sarif
@@ -88,7 +88,7 @@ jobs:
           category: EdFi.AnalyticsMiddleTier.Console
 
       - name: Upload SARIF file - Common
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: src/EdFi.AnalyticsMiddleTier.Common/results.sarif
@@ -97,7 +97,7 @@ jobs:
           category: EdFi.AnalyticsMiddleTier.Common
 
       - name: Upload SARIF file - DataStandard2
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: src/EdFi.AnalyticsMiddleTier.DataStandard2/results.sarif
@@ -106,7 +106,7 @@ jobs:
           category: EdFi.AnalyticsMiddleTier.DataStandard2
 
       - name: Upload SARIF file - DataStandard31
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: src/EdFi.AnalyticsMiddleTier.DataStandard31/results.sarif
@@ -115,7 +115,7 @@ jobs:
           category: EdFi.AnalyticsMiddleTier.DataStandard31
 
       - name: Upload SARIF file - DataStandard32
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: src/EdFi.AnalyticsMiddleTier.DataStandard32/results.sarif
@@ -124,7 +124,7 @@ jobs:
           category: EdFi.AnalyticsMiddleTier.DataStandard32
 
       - name: Upload SARIF file - DataStandard33
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: src/EdFi.AnalyticsMiddleTier.DataStandard33/results.sarif
@@ -133,7 +133,7 @@ jobs:
           category: EdFi.AnalyticsMiddleTier.DataStandard33
 
       - name: Upload SARIF file - Console
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: src/EdFi.AnalyticsMiddleTier.Tests/results.sarif
