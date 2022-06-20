@@ -59,10 +59,6 @@ jobs:
           -  5432:5432
 
     steps:
-      - name: Start Ubuntu container for SQLServer 2017 Express
-        run: |
-         docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=${{ env.SQLSERVER_ADMIN_PASS }}" -e "MSSQL_PID=Express" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-latest       
-
       - name: Checkout code
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
       
@@ -142,6 +138,11 @@ jobs:
           # Used to differentiate multiple results for one commit
           category: EdFi.AnalyticsMiddleTier.Tests
 
+      - name: Unit Tests
+        run: |
+          .\build.ps1 unittest -Configuration ${{ env.CONFIGURATION }}
+        shell: pwsh
+      
       - name: Create Postgres DB DS v3.2
         run: |
           .\eng\CreateTestDbAndSchema.ps1 -port ${{ env.POSTGRES_PORT }} -d ${{ env.POSTGRES_DATABASE_DS32 }} -ds 3.2
@@ -156,11 +157,10 @@ jobs:
         env:
           PGPASSWORD: ${{ env.POSTGRES_PASS }}
 
-      - name: Unit Tests
+      - name: Start Ubuntu container for SQLServer 2017 Express
         run: |
-          .\build.ps1 unittest -Configuration ${{ env.CONFIGURATION }}
-        shell: pwsh
-      
+         docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=${{ env.SQLSERVER_ADMIN_PASS }}" -e "MSSQL_PID=Express" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-latest       
+
       - name: Integration Tests
         run: |
           .\build.ps1 integrationtest -Configuration ${{ env.CONFIGURATION }}
