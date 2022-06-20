@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <ErrorLog>compiler-diagnostics.sarif</ErrorLog>
   </PropertyGroup>
 
   <ItemGroup>
