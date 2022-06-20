@@ -9,7 +9,7 @@
     <Copyright>Copyright (c) 2018, Ed-Fi Alliance</Copyright>
     <Version>1.1.0</Version>
     <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <ErrorLog>results.sarif,version=2.1</ErrorLog>
+    <ErrorLog>results.sarif,version=1.0</ErrorLog>
   </PropertyGroup>
 
 

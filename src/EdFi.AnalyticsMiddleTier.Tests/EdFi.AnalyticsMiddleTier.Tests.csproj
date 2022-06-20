@@ -2,11 +2,12 @@
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
-  
+
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
+    <ErrorLog>results.sarif,version=1.0</ErrorLog>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
