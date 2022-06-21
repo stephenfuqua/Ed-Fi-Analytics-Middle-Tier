@@ -59,13 +59,6 @@ jobs:
           -  5432:5432
 
     steps:
-      - name: Set Ubuntu to use en_US.UTF-8 as locale information
-        # This is critical for getting the sarif reports working correctly,
-        # otherwise they end up with language="", which is not valid sarif.
-        run: |
-          sudo locale-gen en_US.UTF-8
-          sudo update-locale LANG=en_US.UTF-8
-
       - name: Checkout code
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
       
@@ -93,13 +86,6 @@ jobs:
            $files | ForEach-Object { (Get-Content $_) -replace $from, $to | Out-File $_ }
         shell: pwsh
 
-      # Uploading SARIF files would be the gold standard, because it would
-      # integrate errors into the action workflow and (in theory) put comments
-      # inline with the pull request. However there is a bug that is preventing
-      # this from working. Keeping the following for now as I try to find a
-      # workaround or fix the upload action.
-      # https://github.com/github/codeql-action/issues/418
-
       - name: Upload SARIF file - Console
         uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
         with:
@@ -109,64 +95,59 @@ jobs:
           # Used to differentiate multiple results for one commit
           category: EdFi.AnalyticsMiddleTier.Console
 
-      # - name: Upload SARIF file - Common
-      #   uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
-      #   with:
-      #     # Path to SARIF file relative to the root of the repository
-      #     sarif_file: src/EdFi.AnalyticsMiddleTier.Common/results.sarif
-      #     # Optional category for the results
-      #     # Used to differentiate multiple results for one commit
-      #     category: EdFi.AnalyticsMiddleTier.Common
-
-      # - name: Upload SARIF file - DataStandard2
-      #   uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
-      #   with:
-      #     # Path to SARIF file relative to the root of the repository
-      #     sarif_file: src/EdFi.AnalyticsMiddleTier.DataStandard2/results.sarif
-      #     # Optional category for the results
-      #     # Used to differentiate multiple results for one commit
-      #     category: EdFi.AnalyticsMiddleTier.DataStandard2
-
-      # - name: Upload SARIF file - DataStandard31
-      #   uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
-      #   with:
-      #     # Path to SARIF file relative to the root of the repository
-      #     sarif_file: src/EdFi.AnalyticsMiddleTier.DataStandard31/results.sarif
-      #     # Optional category for the results
-      #     # Used to differentiate multiple results for one commit
-      #     category: EdFi.AnalyticsMiddleTier.DataStandard31
-
-      # - name: Upload SARIF file - DataStandard32
-      #   uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
-      #   with:
-      #     # Path to SARIF file relative to the root of the repository
-      #     sarif_file: src/EdFi.AnalyticsMiddleTier.DataStandard32/results.sarif
-      #     # Optional category for the results
-      #     # Used to differentiate multiple results for one commit
-      #     category: EdFi.AnalyticsMiddleTier.DataStandard32
-
-      # - name: Upload SARIF file - DataStandard33
-      #   uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
-      #   with:
-      #     # Path to SARIF file relative to the root of the repository
-      #     sarif_file: src/EdFi.AnalyticsMiddleTier.DataStandard33/results.sarif
-      #     # Optional category for the results
-      #     # Used to differentiate multiple results for one commit
-      #     category: EdFi.AnalyticsMiddleTier.DataStandard33
-
-      # - name: Upload SARIF file - Console
-      #   uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
-      #   with:
-      #     # Path to SARIF file relative to the root of the repository
-      #     sarif_file: src/EdFi.AnalyticsMiddleTier.Tests/results.sarif
-      #     # Optional category for the results
-      #     # Used to differentiate multiple results for one commit
-      #     category: EdFi.AnalyticsMiddleTier.Tests
-      - name: Upload results
-        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # v3.0.0
+      - name: Upload SARIF file - Common
+        uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
         with:
-          name: console-sarif
-          path: src/EdFi.AnalyticsMiddleTier.Console/results.sarif
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: src/EdFi.AnalyticsMiddleTier.Common/results.sarif
+          # Optional category for the results
+          # Used to differentiate multiple results for one commit
+          category: EdFi.AnalyticsMiddleTier.Common
+
+      - name: Upload SARIF file - DataStandard2
+        uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: src/EdFi.AnalyticsMiddleTier.DataStandard2/results.sarif
+          # Optional category for the results
+          # Used to differentiate multiple results for one commit
+          category: EdFi.AnalyticsMiddleTier.DataStandard2
+
+      - name: Upload SARIF file - DataStandard31
+        uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: src/EdFi.AnalyticsMiddleTier.DataStandard31/results.sarif
+          # Optional category for the results
+          # Used to differentiate multiple results for one commit
+          category: EdFi.AnalyticsMiddleTier.DataStandard31
+
+      - name: Upload SARIF file - DataStandard32
+        uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: src/EdFi.AnalyticsMiddleTier.DataStandard32/results.sarif
+          # Optional category for the results
+          # Used to differentiate multiple results for one commit
+          category: EdFi.AnalyticsMiddleTier.DataStandard32
+
+      - name: Upload SARIF file - DataStandard33
+        uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: src/EdFi.AnalyticsMiddleTier.DataStandard33/results.sarif
+          # Optional category for the results
+          # Used to differentiate multiple results for one commit
+          category: EdFi.AnalyticsMiddleTier.DataStandard33
+
+      - name: Upload SARIF file - Console
+        uses: github/codeql-action/upload-sarif@81b419c908d540ec4c7da9bfb4b5d941fca8f624
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: src/EdFi.AnalyticsMiddleTier.Tests/results.sarif
+          # Optional category for the results
+          # Used to differentiate multiple results for one commit
+          category: EdFi.AnalyticsMiddleTier.Tests
 
       # - name: Unit Tests
       #   run: |
