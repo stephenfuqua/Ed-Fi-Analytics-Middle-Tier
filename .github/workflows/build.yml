@@ -59,6 +59,13 @@ jobs:
           -  5432:5432
 
     steps:
+      - name: Set Ubuntu to use en_US.UTF-8 as locale information
+        # This is critical for getting the sarif reports working correctly,
+        # otherwise they end up with language="", which is not valid sarif.
+        run: |
+          sudo locale-gen en_US.UTF-8
+          sudo update-locale LANG=en_US.UTF-8
+
       - name: Checkout code
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
       
@@ -153,31 +160,31 @@ jobs:
           name: console-sarif
           path: src/EdFi.AnalyticsMiddleTier.Console/results.sarif
 
-      - name: Unit Tests
-        run: |
-          .\build.ps1 unittest -Configuration ${{ env.CONFIGURATION }}
-        shell: pwsh
+      # - name: Unit Tests
+      #   run: |
+      #     .\build.ps1 unittest -Configuration ${{ env.CONFIGURATION }}
+      #   shell: pwsh
       
-      - name: Create Postgres DB DS v3.2
-        run: |
-          .\eng\CreateTestDbAndSchema.ps1 -port ${{ env.POSTGRES_PORT }} -d ${{ env.POSTGRES_DATABASE_DS32 }} -ds 3.2
-        shell: pwsh
-        env:
-          PGPASSWORD:  ${{ env.POSTGRES_PASS }}
+      # - name: Create Postgres DB DS v3.2
+      #   run: |
+      #     .\eng\CreateTestDbAndSchema.ps1 -port ${{ env.POSTGRES_PORT }} -d ${{ env.POSTGRES_DATABASE_DS32 }} -ds 3.2
+      #   shell: pwsh
+      #   env:
+      #     PGPASSWORD:  ${{ env.POSTGRES_PASS }}
 
-      - name: Create Postgres DB DS v3.3
-        run: |
-          .\eng\CreateTestDbAndSchema.ps1 -port ${{ env.POSTGRES_PORT }} -d ${{ env.POSTGRES_DATABASE_DS33 }} -ds 3.3
-        shell: pwsh
-        env:
-          PGPASSWORD: ${{ env.POSTGRES_PASS }}
+      # - name: Create Postgres DB DS v3.3
+      #   run: |
+      #     .\eng\CreateTestDbAndSchema.ps1 -port ${{ env.POSTGRES_PORT }} -d ${{ env.POSTGRES_DATABASE_DS33 }} -ds 3.3
+      #   shell: pwsh
+      #   env:
+      #     PGPASSWORD: ${{ env.POSTGRES_PASS }}
 
-      - name: Start Ubuntu container for SQLServer 2017 Express
-        run: |
-         docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=${{ env.SQLSERVER_ADMIN_PASS }}" -e "MSSQL_PID=Express" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-latest       
+      # - name: Start Ubuntu container for SQLServer 2017 Express
+      #   run: |
+      #    docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=${{ env.SQLSERVER_ADMIN_PASS }}" -e "MSSQL_PID=Express" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-latest       
 
-      - name: Integration Tests
-        run: |
-          .\build.ps1 integrationtest -Configuration ${{ env.CONFIGURATION }}
-        shell: pwsh
+      # - name: Integration Tests
+      #   run: |
+      #     .\build.ps1 integrationtest -Configuration ${{ env.CONFIGURATION }}
+      #   shell: pwsh
         
