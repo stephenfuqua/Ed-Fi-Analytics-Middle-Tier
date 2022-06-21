@@ -1,4 +1,4 @@
-﻿// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
 // Licensed to the Ed-Fi Alliance under one or more agreements.
 // The Ed-Fi Alliance licenses this file to you under the Apache License, Version 2.0.
 // See the LICENSE and NOTICES files in the project root for more information.
@@ -70,6 +70,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         private (bool success, string errorMessage) CompareResultsets(List<T> queryResultList)
         {
+#pragma warning disable S3265 // Non-flags enums should not be used in bitwise operations  - we can't change XmlDiffOptions to fix this
             XmlDiff xmlDiff = new XmlDiff(XmlDiffOptions.IgnoreChildOrder
                                           | XmlDiffOptions.IgnoreNamespaces
                                           | XmlDiffOptions.IgnoreComments
