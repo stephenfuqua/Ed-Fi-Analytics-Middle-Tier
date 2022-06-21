@@ -1,4 +1,4 @@
-﻿// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
 // Licensed to the Ed-Fi Alliance under one or more agreements.
 // The Ed-Fi Alliance licenses this file to you under the Apache License, Version 2.0.
 // See the LICENSE and NOTICES files in the project root for more information.
@@ -18,7 +18,7 @@ namespace EdFi.AnalyticsMiddleTier.Common
         protected string SchemaDefault = "dbo";
         protected string JournalingVersionsTable = "AnalyticsMiddleTierSchemaVersion";
         protected string IndexJournalTable = "IndexJournal";
-        
+
         protected DatabaseUninstallStrategyBase(IOrm orm)
         {
             Orm = orm ?? throw new ArgumentNullException(nameof(orm));
@@ -39,7 +39,7 @@ namespace EdFi.AnalyticsMiddleTier.Common
                 DropTable(AnalyticsConfigSchema, IndexJournalTable);
                 DropTable(SchemaDefault, JournalingVersionsTable);
                 RemoveAllStoredProcedures(AnalyticsConfigSchema);
-                if (uninstallAll)
+                if ( uninstallAll )
                 {
                     DropSchema(AnalyticsSchema);
                     DropSchema(AnalyticsConfigSchema);
@@ -47,7 +47,7 @@ namespace EdFi.AnalyticsMiddleTier.Common
 
                 return (true, string.Empty);
             }
-            catch (Exception ex)
+            catch ( Exception ex )
             {
                 return (false, ex.ConcatenateInnerMessages());
             }
@@ -110,7 +110,7 @@ namespace EdFi.AnalyticsMiddleTier.Common
         /// Remove all indexes in a schema.
         /// </summary>
         /// <param name="schema">Schema to filter.</param>
-        public int RemoveAllIndexes(string schema)=> RemoveDbObjectsBySchema(GetQueryIndexesTemplate, GetDropIndexTemplate, schema);
+        public int RemoveAllIndexes(string schema) => RemoveDbObjectsBySchema(GetQueryIndexesTemplate, GetDropIndexTemplate, schema);
 
         /// <summary>
         /// Remove all views in a schema.
@@ -128,14 +128,14 @@ namespace EdFi.AnalyticsMiddleTier.Common
         /// Remove all stored procedures in a schema.
         /// </summary>
         /// <param name="schema">Schema to filter.</param>
-        public int RemoveAllStoredProcedures(string schema)=> RemoveDbObjectsBySchema(GetQueryStoredProceduresTemplate, GetDropStoredProceduresTemplate, schema);
+        public int RemoveAllStoredProcedures(string schema) => RemoveDbObjectsBySchema(GetQueryStoredProceduresTemplate, GetDropStoredProceduresTemplate, schema);
 
 
-        protected int RemoveDbObjectsBySchema(Func<string, string>queryTemplate, Func<string, string, string>DropTemplate, string schema)
+        protected int RemoveDbObjectsBySchema(Func<string, string> queryTemplate, Func<string, string, string> DropTemplate, string schema)
         {
             var dbSchema = schema.ToLower();
             var objectsToDrop = Orm.Query<string>(queryTemplate(dbSchema));
-            if ((objectsToDrop?.Count ?? 0) <= 0){ return 0;}
+            if ( (objectsToDrop?.Count ?? 0) <= 0 ) { return 0; }
             var sql = String.Join(string.Empty, objectsToDrop.Select(i => (DropTemplate(dbSchema, i))));
             return Orm.Execute(sql);
         }
@@ -143,7 +143,7 @@ namespace EdFi.AnalyticsMiddleTier.Common
         {
             var dbSchema = schema.ToLower();
             var objectsToDrop = Orm.Query<string>(queryTemplate(dbSchema));
-            if ((objectsToDrop?.Count ?? 0) <= 0){ return 0;}
+            if ( (objectsToDrop?.Count ?? 0) <= 0 ) { return 0; }
             var sql = String.Join(String.Empty, objectsToDrop.Select(i => (DropTemplate(i))));
             return Orm.Execute(sql);
         }

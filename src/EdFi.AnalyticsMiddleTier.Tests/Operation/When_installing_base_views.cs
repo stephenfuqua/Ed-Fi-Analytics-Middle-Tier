@@ -1,4 +1,4 @@
-﻿// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
 // Licensed to the Ed-Fi Alliance under one or more agreements.
 // The Ed-Fi Alliance licenses this file to you under the Apache License, Version 2.0.
 // See the LICENSE and NOTICES files in the project root for more information.
@@ -36,7 +36,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
         [TestCase("analytics_config")]
         public void Then_create_schema(string schema)
         {
-            if(DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
+            if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
             {
                 DataStandard
                 .ExecuteScalarQuery<int>($"select 1 from sys.schemas where name = '{schema}'")
@@ -79,7 +79,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
         {
             const string sql = "SELECT 1 FROM sys.database_principals WHERE [type] = 'R' AND [name] = 'analytics_middle_tier'";
             const string postgresql = "SELECT 1 FROM pg_roles WHERE rolname = 'analytics_middle_tier'";
-            if (DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
+            if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
             {
                 DataStandard.ExecuteScalarQuery<int>(sql).ShouldBe(1);
             }
@@ -95,7 +95,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
         public void Then_should_not_install_indexes(string indexName)
         {
             var sql = $"select 1 from sys.indexes where [name] = '{indexName}'";
-            if (DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
+            if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
             {
                 DataStandard.ExecuteScalarQuery<int>(sql).ShouldBe(0);
             }
@@ -104,10 +104,10 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
                 Assert.Ignore("Indexes are not installed (PostgreSQL).");
             }
         }
-       
+
         public class Given_a_data_standard : When_installing_base_views
         {
             public Given_a_data_standard(TestHarnessBase dataStandard) => SetDataStandard(dataStandard);
-        }             
+        }
     }
 }

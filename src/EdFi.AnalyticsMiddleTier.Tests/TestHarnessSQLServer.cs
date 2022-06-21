@@ -1,4 +1,4 @@
-﻿// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
 // Licensed to the Ed-Fi Alliance under one or more agreements.
 // The Ed-Fi Alliance licenses this file to you under the Apache License, Version 2.0.
 // See the LICENSE and NOTICES files in the project root for more information.
@@ -21,16 +21,16 @@ namespace EdFi.AnalyticsMiddleTier.Tests
     {
         private string _snapshotName => $"{_databaseName}_ss";
 
-        public static TestHarnessSQLServer DataStandard2 
+        public static TestHarnessSQLServer DataStandard2
             = new TestHarnessSQLServer(new SqlServerDataStandardSettings(DataStandard.Ds2));
 
         public static TestHarnessSQLServer DataStandard31
             = new TestHarnessSQLServer(new SqlServerDataStandardSettings(DataStandard.Ds31));
 
-        public static TestHarnessSQLServer DataStandard32 
+        public static TestHarnessSQLServer DataStandard32
             = new TestHarnessSQLServer(new SqlServerDataStandardSettings(DataStandard.Ds32));
 
-        public static TestHarnessSQLServer DataStandard33 
+        public static TestHarnessSQLServer DataStandard33
             = new TestHarnessSQLServer(new SqlServerDataStandardSettings(DataStandard.Ds33));
 
         protected TestHarnessSQLServer(IDataStandardSettings dataStandardSettings) : base(dataStandardSettings)
@@ -39,9 +39,9 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         public override void PrepareDatabase()
         {
-            using (var connection = new SqlConnection(_mainDatabaseConnectionString))
+            using ( var connection = new SqlConnection(_mainDatabaseConnectionString) )
             {
-                if (NotUsingSnapshots())
+                if ( NotUsingSnapshots() )
                 {
                     Console.WriteLine("Not using snapshots for Analytics Middle Tier integration testing");
                     DropSnapshotIfItExists();
@@ -49,7 +49,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
                 }
                 else
                 {
-                    if (TestDatabaseExists() && SnapshotExists())
+                    if ( TestDatabaseExists() && SnapshotExists() )
                     {
                         ReloadFromSnapshotBackup();
                     }
@@ -65,10 +65,10 @@ namespace EdFi.AnalyticsMiddleTier.Tests
                     //return true;
                     const string analyticsMiddleTierNoSnapshots = "ANALYTICSMIDDLETIER_NO_SNAPSHOTS";
 
-                    var noSnapshotsEnvVar = Environment.GetEnvironmentVariable(analyticsMiddleTierNoSnapshots) 
+                    var noSnapshotsEnvVar = Environment.GetEnvironmentVariable(analyticsMiddleTierNoSnapshots)
                                                 ?? "false";
 
-                    if (bool.TryParse(noSnapshotsEnvVar, out bool avoidSnapshot))
+                    if ( bool.TryParse(noSnapshotsEnvVar, out bool avoidSnapshot) )
                     {
                         return avoidSnapshot;
                     }
@@ -103,7 +103,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
                 void LoadDacpac()
                 {
                     var dacService = new DacServices(_connectionString);
-                    using (var dacpac = DacPackage.Load(GetDacFilePath()))
+                    using ( var dacpac = DacPackage.Load(GetDacFilePath()) )
                     {
                         dacService.Deploy(dacpac, _databaseName, true, CreateDeployOptions());
                     }
@@ -111,8 +111,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
                 DacDeployOptions CreateDeployOptions()
                 {
-                    return new DacDeployOptions
-                    {
+                    return new DacDeployOptions {
                         CreateNewDatabase = true
                     };
                 }
@@ -149,7 +148,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 #pragma warning restore CS8321 // Local function is declared but never used
                 {
                     // ReSharper disable once InvertIf - easier to read this way
-                    if (SnapshotExists())
+                    if ( SnapshotExists() )
                     {
                         var dropSnapshotHistory =
                             $"EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'{_snapshotName}'";

@@ -1,4 +1,4 @@
-﻿// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
 // Licensed to the Ed-Fi Alliance under one or more agreements.
 // The Ed-Fi Alliance licenses this file to you under the Apache License, Version 2.0.
 // See the LICENSE and NOTICES files in the project root for more information.
@@ -37,7 +37,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
             {
                 Result = DataStandard.Install();
             }
-            
+
             [Test]
             public void Then_should_not_be_successful() => Result.success.ShouldBe(false);
 
@@ -47,7 +47,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
             [Test]
             public void Then_should_not_install_any_views()
             {
-                if (DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
+                if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
                 {
                     DataStandard
                         .ExecuteScalarQuery<int>($"select 1 from sys.schemas where name = 'analytics'")
@@ -65,7 +65,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
             public void Then_should_not_install_any_indexes()
             {
                 var sql = "select count(1) from sys.indexes where [name] LIKE 'IX_AMT_%'";
-                if (DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
+                if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
                 {
                     DataStandard.ExecuteScalarQuery<int>(sql).ShouldBe(0);
                 }

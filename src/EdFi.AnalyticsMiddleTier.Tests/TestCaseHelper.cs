@@ -28,7 +28,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         [XmlElement(ElementName = "ControlDataInsertion")]
         public List<string> ControlDataInsertion { get; set; }
-        
+
         [XmlElement(ElementName = "Query")]
         public string Query { get; set; }
 
@@ -46,16 +46,16 @@ namespace EdFi.AnalyticsMiddleTier.Tests
         /// </summary>
         public void LoadControlData()
         {
-            if ((this.ControlDataInsertion?.Count ?? 0) > 0)
+            if ( (this.ControlDataInsertion?.Count ?? 0) > 0 )
             {
                 string sqlCommand = string.Join(' ', this.ControlDataInsertion);
-                if (!String.IsNullOrWhiteSpace(sqlCommand))
+                if ( !String.IsNullOrWhiteSpace(sqlCommand) )
                 {
                     Connection.Execute(sqlCommand);
                 }
             }
         }
-        
+
         public void Dispose()
         {
             this.Connection?.Dispose();

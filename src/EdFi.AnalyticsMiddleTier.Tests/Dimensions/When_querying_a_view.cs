@@ -1,4 +1,4 @@
-﻿// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
 // Licensed to the Ed-Fi Alliance under one or more agreements.
 // The Ed-Fi Alliance licenses this file to you under the Apache License, Version 2.0.
 // See the LICENSE and NOTICES files in the project root for more information.
@@ -20,14 +20,14 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions
 
         protected void PrepareTestData<T>(string testCaseFolder, string xmlLoadFile, params Component[] components)
         {
-            foreach (var dataStandard in fixtureList.GetFixturesList())
+            foreach ( var dataStandard in fixtureList.GetFixturesList() )
             {
                 string xmlLoadFilePath =
                     $"{testCaseFolder}.{dataStandard}.{xmlLoadFile}";
 
                 dataStandard.PrepareDatabase();
                 dataStandard.LoadTestCaseData<T>(xmlLoadFilePath);
-                if (components == null || components.Length == 0)
+                if ( components == null || components.Length == 0 )
                 {
                     dataStandard.Install(10);
                 }

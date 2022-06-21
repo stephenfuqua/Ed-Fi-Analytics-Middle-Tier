@@ -1,4 +1,4 @@
-﻿// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
 // Licensed to the Ed-Fi Alliance under one or more agreements.
 // The Ed-Fi Alliance licenses this file to you under the Apache License, Version 2.0.
 // See the LICENSE and NOTICES files in the project root for more information.
@@ -17,7 +17,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.ClassPeriodDimTestGroup
     {
         protected const string TestCasesFolder = "TestCases.ClassPeriodDim";
         protected const string TestCasesDataFileName = "0000_ClassPeriodDim_Data_Load.xml";
-        
+
         [Test]
         public void Then_view_should_match_column_dictionary()
         {
@@ -47,7 +47,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.ClassPeriodDimTestGroup
             [Test]
             public void Then_should_not_return_any_record()
             {
-                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
+                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
                 {
                     (bool success, string errorMessage) testResult = DataStandard.RunTestCase<CountResult>($"{TestCasesFolder}.{DataStandard.DataStandardBaseVersionFolderName}.{_caseIdentifier}_should_not_return_any_record.xml");
                     testResult.success.ShouldBe(true, testResult.errorMessage);

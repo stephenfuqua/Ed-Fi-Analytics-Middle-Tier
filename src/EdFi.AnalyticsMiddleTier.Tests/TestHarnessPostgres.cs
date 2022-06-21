@@ -1,4 +1,4 @@
-﻿// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
 // Licensed to the Ed-Fi Alliance under one or more agreements.
 // The Ed-Fi Alliance licenses this file to you under the Apache License, Version 2.0.
 // See the LICENSE and NOTICES files in the project root for more information.
@@ -18,7 +18,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
         public static TestHarnessPostgres DataStandard32PG
                 = new TestHarnessPostgres(new PostgresDataStandardSettings(DataStandard.Ds32));
 
-        public static TestHarnessPostgres DataStandard33PG 
+        public static TestHarnessPostgres DataStandard33PG
                 = new TestHarnessPostgres(new PostgresDataStandardSettings(DataStandard.Ds33));
 
         protected TestHarnessPostgres(IDataStandardSettings dataStandardSettings) : base(dataStandardSettings)
@@ -30,7 +30,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
             Uninstall();
 
             // For now I am assuming the ODS exists. So I just truncate all tables.
-            using (var connection = OpenConnection())
+            using ( var connection = OpenConnection() )
             {
                 var truncateAllTablesLine = connection.ExecuteScalar<string>(
                         @"SELECT 'TRUNCATE TABLE ' || string_agg(format('%I.%I', schemaname, tablename), ', ') || ' CASCADE'
@@ -44,7 +44,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
                                     OR schemaname = 'tpdm'
 		                            )");
 
-                if (!string.IsNullOrEmpty(truncateAllTablesLine))
+                if ( !string.IsNullOrEmpty(truncateAllTablesLine) )
                 {
                     connection.Execute(truncateAllTablesLine);
                 }

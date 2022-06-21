@@ -1,4 +1,4 @@
-﻿// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
 // Licensed to the Ed-Fi Alliance under one or more agreements.
 // The Ed-Fi Alliance licenses this file to you under the Apache License, Version 2.0.
 // See the LICENSE and NOTICES files in the project root for more information.
@@ -24,7 +24,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.SectionDimTestGroup
             (bool success, string errorMessage) testResult = DataStandard.RunTestCase<TableColumns>($"{TestCasesFolder}.{DataStandard.TestDataFolderName}.0001_SectionDim_should_match_column_dictionary.xml");
             testResult.success.ShouldBe(true, testResult.errorMessage);
         }
-       
+
         [Test]
         public void Then_should_have_SectionKey()
         {
@@ -134,7 +134,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.SectionDimTestGroup
             [SetUp]
             public void SetUp()
             {
-                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds31) || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32))
+                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds31) || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32) )
                 {
                     Assert.Ignore($"No validation needed because the query is different. ({DataStandard.DataStandardVersion.ToString()})");
                 }
@@ -163,7 +163,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.SectionDimTestGroup
             [SetUp]
             public void SetUp()
             {
-                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
+                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
                 {
                     Assert.Ignore($"No validation needed because the query is different. ({DataStandard.DataStandardVersion.ToString()})");
                 }

@@ -1,4 +1,4 @@
-﻿// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
 // Licensed to the Ed-Fi Alliance under one or more agreements.
 // The Ed-Fi Alliance licenses this file to you under the Apache License, Version 2.0.
 // See the LICENSE and NOTICES files in the project root for more information.
@@ -29,7 +29,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         protected IDatabaseMigrationStrategy _databaseMigrationStrategy;
 
-        protected IDatabaseConnection _databaseConnection 
+        protected IDatabaseConnection _databaseConnection
                             => _dataStandardSettings.DatabaseConnection;
 
         protected string _databaseName => _databaseConnection.DatabaseName;
@@ -60,11 +60,11 @@ namespace EdFi.AnalyticsMiddleTier.Tests
         protected string _mainDatabaseConnectionString => _databaseConnection.MainDatabaseConnectionString;
 
         protected IOrm _orm { get; set; }
-        
+
         public IOrm Orm => _orm ??= _dataStandardSettings.DatabaseConnection.Orm;
 
         protected IDatabaseMigrationStrategy DatabaseMigrationStrategy =>
-            _databaseMigrationStrategy 
+            _databaseMigrationStrategy
                 ??= _dataStandardSettings.DatabaseConnection.DatabaseMigrationStrategy;
 
         protected IUninstallStrategy UninstallStrategy =>
@@ -73,19 +73,17 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         protected InstallBase DataStandardInstallBase
         {
-            get
-            {
-                _dataStandardInstallBase ??= (InstallBase)Activator.CreateInstance(_dataStandardInstallType,
+            get {
+                _dataStandardInstallBase ??= ( InstallBase ) Activator.CreateInstance(_dataStandardInstallType,
                     DatabaseMigrationStrategy);
                 return _dataStandardInstallBase;
             }
             set => _dataStandardInstallBase = value;
         }
-        
+
         public Func<string, int, Component[], (bool success, string errorMessage)> InstallDelegate
         {
-            get
-            {
+            get {
                 _installDelegate ??= DataStandardInstallBase.Run;
                 return _installDelegate;
             }
@@ -109,7 +107,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         public T ExecuteScalarQuery<T>(string sqlCommand)
         {
-            using (var connection = OpenConnection())
+            using ( var connection = OpenConnection() )
             {
                 return connection.ExecuteScalar<T>(sqlCommand);
             }
@@ -136,7 +134,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         public bool ScalarFunctionExists(string scalarFunctionName, string schema)
         {
-            using (var connection = OpenConnection())
+            using ( var connection = OpenConnection() )
             {
                 var sql =
                     $"select 1 from information_schema.ROUTINES where SPECIFIC_SCHEMA = '{schema}' and (SPECIFIC_NAME='{scalarFunctionName}' OR SPECIFIC_NAME='{scalarFunctionName.ToLower()}')";
@@ -146,7 +144,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         public bool TableExists(string schemaName, string tableName)
         {
-            using (var connection = OpenConnection())
+            using ( var connection = OpenConnection() )
             {
                 var sql = $"select 1 from information_schema.tables where table_schema = '{schemaName.ToLower()}' and (table_name='{tableName.ToLower()}' OR table_name='{tableName}')";
                 return connection.ExecuteScalar<int>(sql) == 1;
@@ -155,7 +153,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         public void ExecuteQuery(string sqlCommand)
         {
-            using (var connection = OpenConnection())
+            using ( var connection = OpenConnection() )
             {
                 connection.Execute(sqlCommand);
             }
@@ -175,7 +173,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
         {
             (bool success, string errorMessage) testCaseResult;
             var testCase = TestCaseSerializer.LoadTestCase<T>(testCaseFile);
-            using (testCase.Connection = OpenConnection())
+            using ( testCase.Connection = OpenConnection() )
             {
                 testCase.LoadControlData();
                 testCaseResult = testCase.RunTestCase();
@@ -189,13 +187,13 @@ namespace EdFi.AnalyticsMiddleTier.Tests
             try
             {
                 var testCase = TestCaseSerializer.LoadTestCase<T>(testCaseFile);
-                using (testCase.Connection = OpenConnection())
+                using ( testCase.Connection = OpenConnection() )
                 {
                     testCase.LoadControlData();
                     return (true, string.Empty);
                 }
             }
-            catch (Exception ex)
+            catch ( Exception ex )
             {
                 return (false, ex.Message);
             }

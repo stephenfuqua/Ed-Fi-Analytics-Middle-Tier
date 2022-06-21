@@ -1,4 +1,4 @@
-﻿// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
 // Licensed to the Ed-Fi Alliance under one or more agreements.
 // The Ed-Fi Alliance licenses this file to you under the Apache License, Version 2.0.
 // See the LICENSE and NOTICES files in the project root for more information.
@@ -7,7 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 using EdFi.AnalyticsMiddleTier.Common;
 using NUnit.Framework;
 using Shouldly;
-using CommonLib=EdFi.AnalyticsMiddleTier.Common;
+using CommonLib = EdFi.AnalyticsMiddleTier.Common;
 
 // ReSharper disable once CheckNamespace
 namespace EdFi.AnalyticsMiddleTier.Tests.Operation
@@ -20,13 +20,13 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
         [SetUp]
         public void Act()
         {
-            if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
+            if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
             {
                 Assert.Ignore($"The collection Equity does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
             }
             else
             {
-                Result = DataStandard.Install(10, Component.Equity); 
+                Result = DataStandard.Install(10, Component.Equity);
             }
         }
 
@@ -49,7 +49,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
         [TestCase("fn_GetStudentGradesSummary")]
         public void Then_should_create_analytics_functions(string scalarFunctionName)
         {
-            if (DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
+            if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
             {
                 DataStandard.ScalarFunctionExists(scalarFunctionName).ShouldBe(true);
             }
@@ -57,7 +57,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
             {
                 Assert.Ignore($"The function {scalarFunctionName} is only for MSSQL databases.");
             }
-        } 
+        }
 
 
         [TestCase]

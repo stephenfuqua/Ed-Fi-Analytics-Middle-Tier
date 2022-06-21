@@ -1,4 +1,4 @@
-﻿// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
 // Licensed to the Ed-Fi Alliance under one or more agreements.
 // The Ed-Fi Alliance licenses this file to you under the Apache License, Version 2.0.
 // See the LICENSE and NOTICES files in the project root for more information.
@@ -33,12 +33,12 @@ namespace EdFi.AnalyticsMiddleTier.Common
             ConnectionString = connectionString;
             TimeoutSeconds = timeoutSeconds;
 
-            if (connectionString == null)
+            if ( connectionString == null )
             {
                 throw new ArgumentNullException(nameof(connectionString));
             }
 
-            if (string.IsNullOrWhiteSpace(connectionString))
+            if ( string.IsNullOrWhiteSpace(connectionString) )
             {
                 throw new ArgumentException("connection string cannot be empty", nameof(connectionString));
             }
@@ -50,7 +50,7 @@ namespace EdFi.AnalyticsMiddleTier.Common
                 List<Component> componentsToInstall = GetComponentsToInstall(components.ToList());
                 componentsToInstall.ForEach(x => { RunInstall(x.ToString()); });
             }
-            catch (Exception ex)
+            catch ( Exception ex )
             {
                 return (false, ex.ConcatenateInnerMessages());
             }
@@ -60,7 +60,7 @@ namespace EdFi.AnalyticsMiddleTier.Common
         protected void Install(Assembly assembly, string directoryName)
         {
             var result = _databaseMigrationStrategy.Migrate(assembly, directoryName, ConnectionString, TimeoutSeconds);
-            if (!result.Successful)
+            if ( !result.Successful )
             {
                 throw result.Error;
             }
@@ -71,17 +71,17 @@ namespace EdFi.AnalyticsMiddleTier.Common
         public List<Component> GetComponentsToInstall(List<Component> components)
         {
             List<Component> componentsToInstall = new List<Component>();
-            if (components?.Count > 0)
+            if ( components?.Count > 0 )
             {
-                foreach (var component in components)
+                foreach ( var component in components )
                 {
-                    if (!componentsToInstall.Contains(component))
+                    if ( !componentsToInstall.Contains(component) )
                     {
                         var dependencies = _componentDependency.FindAll(x => x.Key == component);
 
                         List<Component> listDependencies =
                             ((dependencies.Count >= 1) ? dependencies[0].Value : new List<Component>());
-                        foreach (var dependency in listDependencies)
+                        foreach ( var dependency in listDependencies )
                         {
                             componentsToInstall.Remove(dependency);
                             componentsToInstall.Insert(0, dependency);

@@ -1,4 +1,4 @@
-﻿// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0
 // Licensed to the Ed-Fi Alliance under one or more agreements.
 // The Ed-Fi Alliance licenses this file to you under the Apache License, Version 2.0.
 // See the LICENSE and NOTICES files in the project root for more information.
@@ -18,7 +18,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolFoodServiceProg
     {
         protected const string TestCasesFolder = "TestCases.StudentSchoolFoodServiceProgramDim";
         protected const string TestCasesDataFileName = "0000_StudentSchoolFoodServiceProgramDim_Data_Load.xml";
-    
+
         [Test]
         public void Then_view_should_match_column_dictionary()
         {
@@ -44,7 +44,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolFoodServiceProg
             [SetUp]
             public void IgnoreTestCase()
             {
-                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
+                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
                 {
                     Assert.Ignore(
                         $"The StudentSchoolFoodServiceProgramDim view does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -111,7 +111,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolFoodServiceProg
             [SetUp]
             public void IgnoreTestCase()
             {
-                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
+                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
                 {
                     Assert.Ignore(
                         $"The StudentSchoolFoodServiceProgramDim view does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -136,7 +136,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolFoodServiceProg
             [SetUp]
             public void IgnoreTestCase()
             {
-                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
+                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
                 {
                     Assert.Ignore(
                         $"The StudentSchoolFoodServiceProgramDim view does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
