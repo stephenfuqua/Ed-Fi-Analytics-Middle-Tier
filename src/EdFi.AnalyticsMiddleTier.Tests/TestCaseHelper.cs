@@ -58,8 +58,17 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         public void Dispose()
         {
-            this.Connection?.Dispose();
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
         }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing) {
+                this.Connection?.Dispose();
+            }
+        }
+
         private string GetResultXml()
         {
             StringWriter sw = new StringWriter();
