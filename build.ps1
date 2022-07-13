@@ -116,6 +116,7 @@ function AssemblyInfo {
         <Copyright>Copyright © $year Ed-Fi Alliance</Copyright>
         <VersionPrefix>$assembly_version</VersionPrefix>
         <VersionSuffix></VersionSuffix>
+        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
         <ErrorLog>results.sarif,version=2.1</ErrorLog>
     </PropertyGroup>
 </Project>
