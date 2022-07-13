@@ -17,10 +17,12 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Classes
         public string CurrentSchoolKey { get; set; }
         public decimal? AttendanceRate
         {
-            get {
+            get
+            {
                 return _AttendanceRate;
             }
-            set {
+            set
+            {
                 _AttendanceRate = value != null ? Math.Round(value ?? 0, 2) : value;
             }
         }

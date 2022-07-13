@@ -19,7 +19,7 @@ using Ds33 = EdFi.AnalyticsMiddleTier.DataStandard33;
 
 namespace EdFi.AnalyticsMiddleTier.Console
 {
-    internal class Program
+    internal static class Program
     {
 
         private static readonly string _odsVersionNotSupportedMessage
@@ -36,7 +36,8 @@ namespace EdFi.AnalyticsMiddleTier.Console
 
         internal static void Main(string[] args)
         {
-            var parser = new Parser(settings => {
+            var parser = new Parser(settings =>
+            {
                 settings.CaseInsensitiveEnumValues = true;
                 settings.CaseSensitive = false;
                 settings.HelpWriter = System.Console.Error;
@@ -248,7 +249,8 @@ namespace EdFi.AnalyticsMiddleTier.Console
         // ReSharper disable once UnusedMember.Global
         public static IEnumerable<Example> Examples
         {
-            get {
+            get
+            {
                 yield return new Example("Base views only, default data standard (2.x)", new Options { ConnectionString = SampleConnectionString });
                 yield return new Example("Include indexes", new Options { ConnectionString = SampleConnectionString, Components = new[] { Component.Indexes } });
                 yield return new Example("Include indexes and QuickSightEWS views", new Options { ConnectionString = SampleConnectionString, Components = new[] { Component.Indexes, Component.Qews } });

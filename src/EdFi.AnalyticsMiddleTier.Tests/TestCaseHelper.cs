@@ -64,7 +64,8 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         protected virtual void Dispose(bool disposing)
         {
-            if (disposing) {
+            if ( disposing )
+            {
                 this.Connection?.Dispose();
             }
         }

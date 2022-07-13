@@ -73,7 +73,8 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         protected InstallBase DataStandardInstallBase
         {
-            get {
+            get
+            {
                 _dataStandardInstallBase ??= ( InstallBase ) Activator.CreateInstance(_dataStandardInstallType,
                     DatabaseMigrationStrategy);
                 return _dataStandardInstallBase;
@@ -83,7 +84,8 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         public Func<string, int, Component[], (bool success, string errorMessage)> InstallDelegate
         {
-            get {
+            get
+            {
                 _installDelegate ??= DataStandardInstallBase.Run;
                 return _installDelegate;
             }

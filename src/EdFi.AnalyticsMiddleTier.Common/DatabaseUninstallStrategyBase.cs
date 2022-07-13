@@ -175,7 +175,8 @@ namespace EdFi.AnalyticsMiddleTier.Common
 
         protected virtual void Dispose(bool disposing)
         {
-            if (disposing) {
+            if ( disposing )
+            {
                 this.Orm?.Dispose();
             }
         }
