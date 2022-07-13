@@ -39,7 +39,7 @@ dotnet_diagnostic.IDE0073.severity=error # File header template required
 
 # Formatting rules
 dotnet_diagnostic.IDE0055.severity=warning
-csharp_new_line_before_open_brace = methods, properties, control_blocks, types
+csharp_new_line_before_open_brace = all # Allman style
 csharp_new_line_before_else = true
 csharp_new_line_before_catch = true
 csharp_new_line_before_finally = true
@@ -112,10 +112,6 @@ dotnet_style_qualification_for_method = false:suggestion
 dotnet_style_qualification_for_property = false:suggestion
 dotnet_style_require_accessibility_modifiers = for_non_interface_members:warning
 
-# We _want_ to use `this.Whatever` rather than `Whatever`
-dotnet_style_qualification_for_field = true
-dotnet_style_qualification_for_method = true
-
 # We *like* var
 dotnet_diagnostic.IDE0008.severity=none # IDE0008: Use explicit type
 csharp_style_var_elsewhere = false:none
@@ -128,9 +124,10 @@ dotnet_diagnostic.IDE0065.severity=warning
 # Lower the priority
 dotnet_diagnostic.S4136.severity=suggestion # Method overloads should be grouped together
 dotnet_diagnostic.S1135.severity=suggestion # Complete TODO comments
+dotnet_diagnostic.S112.severity=suggestion # 'System.Exception' should not be thrown by user code.
 
 
-[EdFi.AnalyticsMiddleTier.Tests/**/*.{cs,cshtml,csx}]
+[EdFi.AnalyticsMiddleTier.Tests/**/*.cs]
 # Allow our strange test class naming convention
 dotnet_naming_symbols.amt_tests.applicable_kinds = class,method
 dotnet_naming_symbols.amt_tests.word_separator = "_"
