@@ -46,10 +46,10 @@ namespace EdFi.AnalyticsMiddleTier.Tests
         /// </summary>
         public void LoadControlData()
         {
-            if ( (this.ControlDataInsertion?.Count ?? 0) > 0 )
+            if ((this.ControlDataInsertion?.Count ?? 0) > 0)
             {
                 string sqlCommand = string.Join(' ', this.ControlDataInsertion);
-                if ( !String.IsNullOrWhiteSpace(sqlCommand) )
+                if (!String.IsNullOrWhiteSpace(sqlCommand))
                 {
                     Connection.Execute(sqlCommand);
                 }
@@ -64,7 +64,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         protected virtual void Dispose(bool disposing)
         {
-            if ( disposing )
+            if (disposing)
             {
                 this.Connection?.Dispose();
             }

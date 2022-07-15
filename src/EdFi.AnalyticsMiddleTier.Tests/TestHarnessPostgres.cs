@@ -30,7 +30,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
             Uninstall();
 
             // For now I am assuming the ODS exists. So I just truncate all tables.
-            using ( var connection = OpenConnection() )
+            using (var connection = OpenConnection())
             {
                 var truncateAllTablesLine = connection.ExecuteScalar<string>(
                         @"SELECT 'TRUNCATE TABLE ' || string_agg(format('%I.%I', schemaname, tablename), ', ') || ' CASCADE'
@@ -44,7 +44,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
                                     OR schemaname = 'tpdm'
 		                            )");
 
-                if ( !string.IsNullOrEmpty(truncateAllTablesLine) )
+                if (!string.IsNullOrEmpty(truncateAllTablesLine))
                 {
                     connection.Execute(truncateAllTablesLine);
                 }

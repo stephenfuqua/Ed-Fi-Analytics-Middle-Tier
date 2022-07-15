@@ -25,7 +25,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         protected void PrepareTestDatabase()
         {
-            foreach ( var dataStandard in fixtureList.GetFixturesList() )
+            foreach (var dataStandard in fixtureList.GetFixturesList())
             {
                 dataStandard.PrepareDatabase();
             }

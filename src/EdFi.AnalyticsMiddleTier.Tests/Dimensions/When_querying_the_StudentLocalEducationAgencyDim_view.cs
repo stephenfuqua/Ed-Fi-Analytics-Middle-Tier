@@ -137,7 +137,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentLocalEducationAgencyD
             [SetUp]
             public void IgnoreTestCase()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentLocalEducationAgencyDim view does not include digital access information in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");

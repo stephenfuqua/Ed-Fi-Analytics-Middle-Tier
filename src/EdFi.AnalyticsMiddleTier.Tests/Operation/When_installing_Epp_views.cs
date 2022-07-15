@@ -20,9 +20,9 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
         [OneTimeSetUp]
         public void Act()
         {
-            if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2)
+            if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2)
                 || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds31)
-                || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32) )
+                || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32))
             {
                 Assert.Ignore($"The collection Epp does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
             }

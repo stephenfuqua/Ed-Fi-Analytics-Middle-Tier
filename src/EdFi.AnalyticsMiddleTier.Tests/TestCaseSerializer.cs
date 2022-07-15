@@ -21,11 +21,11 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         public static TestCaseHelper<T> LoadTestCase<T>(string filename)
         {
-            if ( filename.EndsWith(XmlExtension) )
+            if (filename.EndsWith(XmlExtension))
             {
                 return LoadTestCaseFromXml<T>(filename);
             }
-            else if ( filename.EndsWith(JsonExtension) )
+            else if (filename.EndsWith(JsonExtension))
             {
                 return LoadTestCaseFromJson<T>(filename);
             }
@@ -37,38 +37,38 @@ namespace EdFi.AnalyticsMiddleTier.Tests
             var resourceName = $"{ExecutingAssembly.GetName().Name}.{xmlFilename}";
 
             TestCaseHelper<T> returnObject;
-            using ( var stream = ExecutingAssembly.GetManifestResourceStream(resourceName) )
+            using (var stream = ExecutingAssembly.GetManifestResourceStream(resourceName))
             {
-                if ( stream == null )
+                if (stream == null)
                 {
                     throw new InvalidOperationException($"Unable to load resource ${resourceName}");
                 }
 
                 XmlSerializer serializer = new XmlSerializer(typeof(TestCaseHelper<T>));
-                returnObject = ( TestCaseHelper<T> ) serializer.Deserialize(stream);
+                returnObject = (TestCaseHelper<T>) serializer.Deserialize(stream);
             }
             return returnObject;
         }
         private static TestCaseHelper<T> LoadTestCaseFromJson<T>(string jsonFilename)
         {
             TestCaseHelper<T> returnObject;
-            using ( var stream = ExecutingAssembly.GetManifestResourceStream($"{ExecutingAssembly.GetName().Name}.{jsonFilename}") )
+            using (var stream = ExecutingAssembly.GetManifestResourceStream($"{ExecutingAssembly.GetName().Name}.{jsonFilename}"))
             {
                 DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(TestCaseHelper<T>));
-                returnObject = ( TestCaseHelper<T> ) js.ReadObject(stream);
+                returnObject = (TestCaseHelper<T>) js.ReadObject(stream);
             }
             return returnObject;
         }
 
         public static string SerializeToXml<T>(this T value)
         {
-            if ( value == null )
+            if (value == null)
             {
                 return string.Empty;
             }
             var xmlSerializer = new XmlSerializer(typeof(T));
             var stringWriter = new StringWriter();
-            using ( var writer = XmlWriter.Create(stringWriter) )
+            using (var writer = XmlWriter.Create(stringWriter))
             {
                 xmlSerializer.Serialize(writer, value);
                 return stringWriter.ToString();

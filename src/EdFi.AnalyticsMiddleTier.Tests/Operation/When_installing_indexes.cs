@@ -20,7 +20,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
         [SetUp]
         public void Act()
         {
-            if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
+            if (DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
             {
                 Result = DataStandard.Install(10, Component.Indexes);
             }
@@ -63,7 +63,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
             [TestCase("IX_AMT_StudentSectionAssociation_StudentSectionDim")]
             public void Then_should_create_index_ds2(string indexName)
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     AssertIndexCreated(indexName);
                 }
@@ -77,7 +77,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
             [TestCase("StudentSectionAssociation", "IX_AMT_StudentSectionAssociation_StudentSectionDim")]
             public void Then_should_record_index_in_journal_ds2(string tableName, string indexName)
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     AssertIndexJournalPopulated(tableName, indexName);
                 }

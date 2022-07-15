@@ -61,7 +61,7 @@ namespace EdFi.AnalyticsMiddleTier.Common
         {
             var sql = DataStandardVersionTemplate;
             var result = _orm.ExecuteScalar<String>(sql);
-            DataStandard dataStandardVersion = ( DataStandard ) Enum.Parse(typeof(DataStandard), result, true);
+            DataStandard dataStandardVersion = (DataStandard) Enum.Parse(typeof(DataStandard), result, true);
             return dataStandardVersion;
         }
     }

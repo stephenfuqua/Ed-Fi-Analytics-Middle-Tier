@@ -36,7 +36,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
         [TestCase("analytics_config")]
         public void Then_create_schema(string schema)
         {
-            if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
+            if (DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
             {
                 DataStandard
                 .ExecuteScalarQuery<int>($"select 1 from sys.schemas where name = '{schema}'")
@@ -79,7 +79,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
         {
             const string sql = "SELECT 1 FROM sys.database_principals WHERE [type] = 'R' AND [name] = 'analytics_middle_tier'";
             const string postgresql = "SELECT 1 FROM pg_roles WHERE rolname = 'analytics_middle_tier'";
-            if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
+            if (DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
             {
                 DataStandard.ExecuteScalarQuery<int>(sql).ShouldBe(1);
             }
@@ -95,7 +95,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
         public void Then_should_not_install_indexes(string indexName)
         {
             var sql = $"select 1 from sys.indexes where [name] = '{indexName}'";
-            if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
+            if (DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
             {
                 DataStandard.ExecuteScalarQuery<int>(sql).ShouldBe(0);
             }

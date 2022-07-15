@@ -95,7 +95,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.GradingPeriodDimTestGroup
             [Test]
             public void Then_should_have_school_year()
             {
-                if ( !DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (!DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     (bool success, string errorMessage) testResult = DataStandard
                         .RunTestCase<GradingPeriodDim>(
@@ -110,7 +110,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.GradingPeriodDimTestGroup
             [Test]
             public void Then_should_have_school_year_Unknown()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     (bool success, string errorMessage) testResult = DataStandard
                         .RunTestCase<GradingPeriodDim>(

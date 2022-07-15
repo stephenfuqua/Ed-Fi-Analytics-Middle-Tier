@@ -75,7 +75,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
         {
             get
             {
-                _dataStandardInstallBase ??= ( InstallBase ) Activator.CreateInstance(_dataStandardInstallType,
+                _dataStandardInstallBase ??= (InstallBase) Activator.CreateInstance(_dataStandardInstallType,
                     DatabaseMigrationStrategy);
                 return _dataStandardInstallBase;
             }
@@ -109,7 +109,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         public T ExecuteScalarQuery<T>(string sqlCommand)
         {
-            using ( var connection = OpenConnection() )
+            using (var connection = OpenConnection())
             {
                 return connection.ExecuteScalar<T>(sqlCommand);
             }
@@ -136,7 +136,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         public bool ScalarFunctionExists(string scalarFunctionName, string schema)
         {
-            using ( var connection = OpenConnection() )
+            using (var connection = OpenConnection())
             {
                 var sql =
                     $"select 1 from information_schema.ROUTINES where SPECIFIC_SCHEMA = '{schema}' and (SPECIFIC_NAME='{scalarFunctionName}' OR SPECIFIC_NAME='{scalarFunctionName.ToLower()}')";
@@ -146,7 +146,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         public bool TableExists(string schemaName, string tableName)
         {
-            using ( var connection = OpenConnection() )
+            using (var connection = OpenConnection())
             {
                 var sql = $"select 1 from information_schema.tables where table_schema = '{schemaName.ToLower()}' and (table_name='{tableName.ToLower()}' OR table_name='{tableName}')";
                 return connection.ExecuteScalar<int>(sql) == 1;
@@ -155,7 +155,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         public void ExecuteQuery(string sqlCommand)
         {
-            using ( var connection = OpenConnection() )
+            using (var connection = OpenConnection())
             {
                 connection.Execute(sqlCommand);
             }
@@ -175,7 +175,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
         {
             (bool success, string errorMessage) testCaseResult;
             var testCase = TestCaseSerializer.LoadTestCase<T>(testCaseFile);
-            using ( testCase.Connection = OpenConnection() )
+            using (testCase.Connection = OpenConnection())
             {
                 testCase.LoadControlData();
                 testCaseResult = testCase.RunTestCase();
@@ -189,13 +189,13 @@ namespace EdFi.AnalyticsMiddleTier.Tests
             try
             {
                 var testCase = TestCaseSerializer.LoadTestCase<T>(testCaseFile);
-                using ( testCase.Connection = OpenConnection() )
+                using (testCase.Connection = OpenConnection())
                 {
                     testCase.LoadControlData();
                     return (true, string.Empty);
                 }
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
                 return (false, ex.Message);
             }

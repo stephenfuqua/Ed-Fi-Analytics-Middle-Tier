@@ -67,11 +67,11 @@ namespace EdFi.AnalyticsMiddleTier.Tests.DataStandardConfiguration
             bool useIntegratedSecurity = integratedSecurityList
                 .Any(s => DbConnectionStringParameter.IntegratedSecurity.ToLower().Contains(s));
 
-            if ( DbConnectionStringParameter.UseDefaultConnectionString )
+            if (DbConnectionStringParameter.UseDefaultConnectionString)
             {
                 return "server=localhost;database={1};integrated security=sspi";
             }
-            else if ( useIntegratedSecurity )
+            else if (useIntegratedSecurity)
             {
                 return "server={0};database={1};integrated security={2};";
             }

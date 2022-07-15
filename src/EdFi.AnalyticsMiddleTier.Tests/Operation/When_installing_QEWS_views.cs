@@ -19,7 +19,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
         [SetUp]
         public void Act()
         {
-            if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
+            if (DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
             {
                 Result = DataStandard.Install(10, Component.Qews);
             }

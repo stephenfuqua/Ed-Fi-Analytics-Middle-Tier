@@ -119,7 +119,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDemographicsBri
             [SetUp]
             public void IgnoreTestCase()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore($"The StudentSchoolDemographicsBridge view with DisabilityDesignation descriptor does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
                 }
@@ -281,7 +281,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDemographicsBri
             [SetUp]
             public void IgnoreTestCase()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore($"The StudentSchoolDemographicsBridge view with TribalAffiliation descriptor does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
                 }
@@ -369,7 +369,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDemographicsBri
             [SetUp]
             public void IgnoreTestCase()
             {
-                if ( !DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (!DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore($"The StudentSchoolDemographicsBridge view with StudentCharacteristic descriptor does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
                 }
@@ -430,7 +430,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDemographicsBri
             [Test]
             public void Then_should_return_one_disability_designation_record()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore($"The StudentSchoolDemographicsBridge view with DisabilityDesignation descriptor does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
                 }
@@ -474,7 +474,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDemographicsBri
             [Test]
             public void Then_should_return_one_tribalaffiliation_record()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore($"The StudentSchoolDemographicsBridge view with TribalAffiliation descriptor does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
                 }

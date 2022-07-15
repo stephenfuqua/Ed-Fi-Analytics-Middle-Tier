@@ -13,7 +13,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.DataStandardConfiguration
 
         public IEnumerator GetEnumerator()
         {
-            foreach ( var fixture in FixtureList )
+            foreach (var fixture in FixtureList)
             {
                 yield return new[] { fixture };
             }

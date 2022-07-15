@@ -11,14 +11,14 @@ namespace EdFi.AnalyticsMiddleTier.Common
     {
         public static string ConcatenateInnerMessages(this Exception outer)
         {
-            if ( outer == null )
+            if (outer == null)
             {
                 return string.Empty;
             }
 
             var message = outer.Message;
 
-            if ( outer.InnerException != null )
+            if (outer.InnerException != null)
             {
                 message += $"{Environment.NewLine}Inner exception: {outer.InnerException.ConcatenateInnerMessages()}";
             }

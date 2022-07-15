@@ -49,7 +49,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentProgramCohortDimTestG
             [SetUp]
             public void IgnoreTestCase()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentProgramCohortDim view does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -150,7 +150,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentProgramCohortDimTestG
             [SetUp]
             public void IgnoreTestCase()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentProgramCohortDim view does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -179,7 +179,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentProgramCohortDimTestG
             [SetUp]
             public void IgnoreTestCase()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentProgramCohortDim view does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -208,7 +208,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentProgramCohortDimTestG
             [SetUp]
             public void IgnoreTestCase()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentProgramCohortDim view does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -237,7 +237,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentProgramCohortDimTestG
             [SetUp]
             public void IgnoreTestCase()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentProgramCohortDim view does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -267,7 +267,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentProgramCohortDimTestG
             [SetUp]
             public void IgnoreTestCase()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentProgramCohortDim view does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -305,7 +305,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentProgramCohortDimTestG
             [SetUp]
             public void IgnoreTestCase()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentProgramCohortDim view does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");

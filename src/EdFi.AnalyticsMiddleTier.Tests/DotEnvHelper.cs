@@ -14,7 +14,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         public DotEnvHelper()
         {
-            if ( _variables != null )
+            if (_variables != null)
             {
                 return;
             }

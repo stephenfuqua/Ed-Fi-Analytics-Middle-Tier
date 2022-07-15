@@ -20,7 +20,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
         [SetUp]
         public void Act()
         {
-            if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+            if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
             {
                 Assert.Ignore($"The collection Equity does not exist in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
             }
@@ -49,7 +49,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
         [TestCase("fn_GetStudentGradesSummary")]
         public void Then_should_create_analytics_functions(string scalarFunctionName)
         {
-            if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
+            if (DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
             {
                 DataStandard.ScalarFunctionExists(scalarFunctionName).ShouldBe(true);
             }

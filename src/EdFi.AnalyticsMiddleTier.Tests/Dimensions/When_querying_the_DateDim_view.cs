@@ -223,7 +223,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.DateDimTestGroup
             public void Then_schoolyear_should_be_2019()
             {
 
-                if ( !DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (!DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     (bool success, string errorMessage) testResult = DataStandard
                         .RunTestCase<DateDim>(
@@ -238,7 +238,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.DateDimTestGroup
             [Test]
             public void Then_schoolyear_should_be_Unknown()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     (bool success, string errorMessage) testResult = DataStandard
                         .RunTestCase<DateDim>(

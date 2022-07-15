@@ -134,7 +134,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.SectionDimTestGroup
             [SetUp]
             public void SetUp()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds31) || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds31) || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32))
                 {
                     Assert.Ignore($"No validation needed because the query is different. ({DataStandard.DataStandardVersion.ToString()})");
                 }
@@ -163,7 +163,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.SectionDimTestGroup
             [SetUp]
             public void SetUp()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore($"No validation needed because the query is different. ({DataStandard.DataStandardVersion.ToString()})");
                 }

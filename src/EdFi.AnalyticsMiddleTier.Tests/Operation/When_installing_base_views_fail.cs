@@ -47,7 +47,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
             [Test]
             public void Then_should_not_install_any_views()
             {
-                if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
+                if (DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
                 {
                     DataStandard
                         .ExecuteScalarQuery<int>($"select 1 from sys.schemas where name = 'analytics'")
@@ -65,7 +65,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
             public void Then_should_not_install_any_indexes()
             {
                 var sql = "select count(1) from sys.indexes where [name] LIKE 'IX_AMT_%'";
-                if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
+                if (DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
                 {
                     DataStandard.ExecuteScalarQuery<int>(sql).ShouldBe(0);
                 }

@@ -20,14 +20,14 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions
 
         protected void PrepareTestData<T>(string testCaseFolder, string xmlLoadFile, params Component[] components)
         {
-            foreach ( var dataStandard in fixtureList.GetFixturesList() )
+            foreach (var dataStandard in fixtureList.GetFixturesList())
             {
                 string xmlLoadFilePath =
                     $"{testCaseFolder}.{dataStandard}.{xmlLoadFile}";
 
                 dataStandard.PrepareDatabase();
                 dataStandard.LoadTestCaseData<T>(xmlLoadFilePath);
-                if ( components == null || components.Length == 0 )
+                if (components == null || components.Length == 0)
                 {
                     dataStandard.Install(10);
                 }

@@ -59,7 +59,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_StudentSchoolKey()
             {
-                if ( !DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (!DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     (bool success, string errorMessage) testResult =
                         DataStandard.RunTestCase<StudentSchoolDim>(
@@ -197,7 +197,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_StudentSchoolKey()
             {
-                if ( !DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (!DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     (bool success, string errorMessage) testResult =
                         DataStandard.RunTestCase<StudentSchoolDim>(
@@ -331,7 +331,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [SetUp]
             public void IgnoreTestCase()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentSchoolDim view does not include digital access information in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -403,7 +403,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_StudentSchoolKey()
             {
-                if ( !DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (!DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     (bool success, string errorMessage) testResult =
                         DataStandard.RunTestCase<StudentSchoolDim>(
@@ -540,7 +540,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_StudentSchoolKey()
             {
-                if ( !DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (!DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     (bool success, string errorMessage) testResult =
                         DataStandard.RunTestCase<StudentSchoolDim>(
@@ -654,7 +654,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_DeviceAccess()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentSchoolDim view does not include digital access information in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -671,7 +671,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_DigitalDevice()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentSchoolDim view does not include digital access information in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -688,7 +688,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_InternetAccessInResidence()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentSchoolDim view does not include digital access information in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -705,7 +705,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_InternetAccessTypeInResidence()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentSchoolDim view does not include digital access information in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -721,7 +721,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_InternetPerformance()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentSchoolDim view does not include digital access information in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -798,7 +798,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_Sex_empty()
             {
-                if ( !DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (!DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     (bool success, string errorMessage) testResult =
                     DataStandard.RunTestCase<StudentSchoolDim>(
@@ -813,7 +813,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_DeviceAccess_NA()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentSchoolDim view does not include digital access information in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -830,7 +830,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_DigitalDevice_NA()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentSchoolDim view does not include digital access information in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -847,7 +847,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_InternetAccessInResidence_NA()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentSchoolDim view does not include digital access information in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -864,7 +864,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_InternetAccessTypeInResidence_NA()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentSchoolDim view does not include digital access information in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");
@@ -880,7 +880,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentSchoolDimTestGroup
             [Test]
             public void Then_should_have_InternetPerformance_NA()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"The StudentSchoolDim view does not include digital access information in this version of the Data Standard. ({DataStandard.DataStandardVersion.ToString()})");

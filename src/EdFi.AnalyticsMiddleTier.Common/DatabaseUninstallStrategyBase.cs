@@ -39,7 +39,7 @@ namespace EdFi.AnalyticsMiddleTier.Common
                 DropTable(AnalyticsConfigSchema, IndexJournalTable);
                 DropTable(SchemaDefault, JournalingVersionsTable);
                 RemoveAllStoredProcedures(AnalyticsConfigSchema);
-                if ( uninstallAll )
+                if (uninstallAll)
                 {
                     DropSchema(AnalyticsSchema);
                     DropSchema(AnalyticsConfigSchema);
@@ -47,7 +47,7 @@ namespace EdFi.AnalyticsMiddleTier.Common
 
                 return (true, string.Empty);
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
                 return (false, ex.ConcatenateInnerMessages());
             }
@@ -135,7 +135,7 @@ namespace EdFi.AnalyticsMiddleTier.Common
         {
             var dbSchema = schema.ToLower();
             var objectsToDrop = Orm.Query<string>(queryTemplate(dbSchema));
-            if ( (objectsToDrop?.Count ?? 0) <= 0 ) { return 0; }
+            if ((objectsToDrop?.Count ?? 0) <= 0) { return 0; }
             var sql = String.Join(string.Empty, objectsToDrop.Select(i => (DropTemplate(dbSchema, i))));
             return Orm.Execute(sql);
         }
@@ -143,7 +143,7 @@ namespace EdFi.AnalyticsMiddleTier.Common
         {
             var dbSchema = schema.ToLower();
             var objectsToDrop = Orm.Query<string>(queryTemplate(dbSchema));
-            if ( (objectsToDrop?.Count ?? 0) <= 0 ) { return 0; }
+            if ((objectsToDrop?.Count ?? 0) <= 0) { return 0; }
             var sql = String.Join(String.Empty, objectsToDrop.Select(i => (DropTemplate(i))));
             return Orm.Execute(sql);
         }
@@ -175,7 +175,7 @@ namespace EdFi.AnalyticsMiddleTier.Common
 
         protected virtual void Dispose(bool disposing)
         {
-            if ( disposing )
+            if (disposing)
             {
                 this.Orm?.Dispose();
             }

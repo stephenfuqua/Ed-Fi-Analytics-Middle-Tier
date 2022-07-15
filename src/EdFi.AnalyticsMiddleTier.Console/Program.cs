@@ -55,23 +55,23 @@ namespace EdFi.AnalyticsMiddleTier.Console
 
                 string errorMessage;
                 IConnectionStringValidator connectionStringValidator;
-                if ( options.DatabaseEngine == Engine.Default
+                if (options.DatabaseEngine == Engine.Default
                         || options.DatabaseEngine == Engine.MSSQL
                         || options.DatabaseEngine == Engine.Sql
-                        || options.DatabaseEngine == Engine.Sqlserver )
+                        || options.DatabaseEngine == Engine.Sqlserver)
                     connectionStringValidator = new SqlServerConnectionStringValidator(options.ConnectionString);
                 else
                     connectionStringValidator = new NpgsqlConnectionStringValidator(options.ConnectionString);
 
-                if ( !connectionStringValidator.IsConnectionStringValid(out errorMessage) )
+                if (!connectionStringValidator.IsConnectionStringValid(out errorMessage))
                     message = $"Bad connection string provided. {errorMessage}";
 
-                if ( String.IsNullOrEmpty(message) )
+                if (String.IsNullOrEmpty(message))
                 {
-                    if ( options.Uninstall )
+                    if (options.Uninstall)
                     {
                         IUninstallStrategy strategy = null;
-                        switch ( options.DatabaseEngine )
+                        switch (options.DatabaseEngine)
                         {
                             case Engine.Postgres:
                             case Engine.Postgresql:
@@ -88,7 +88,7 @@ namespace EdFi.AnalyticsMiddleTier.Console
                                 message = $"Database engine {options.DatabaseEngine.ToString()} is not supported. ";
                                 break;
                         }
-                        if ( string.IsNullOrWhiteSpace(message) )
+                        if (string.IsNullOrWhiteSpace(message))
                         {
                             (successful, message) = strategy?.Uninstall() ?? (false, "Strategy cannot be null");
                         }
@@ -98,7 +98,7 @@ namespace EdFi.AnalyticsMiddleTier.Console
                         InstallBase install = null;
                         IDatabaseMigrationStrategy migrationStrategy = null;
                         DataStandard dataStandardVersion = DataStandard.InvalidDs;
-                        switch ( options.DatabaseEngine )
+                        switch (options.DatabaseEngine)
                         {
                             case Engine.Sql:
                             case Engine.Sqlserver:
@@ -115,7 +115,7 @@ namespace EdFi.AnalyticsMiddleTier.Console
                         }
 
                         dataStandardVersion = migrationStrategy?.GetDataStandardVersion() ?? DataStandard.InvalidDs;
-                        switch ( dataStandardVersion )
+                        switch (dataStandardVersion)
                         {
                             case DataStandard.Ds2:
                                 install = new Ds2.Install(migrationStrategy);
@@ -143,14 +143,14 @@ namespace EdFi.AnalyticsMiddleTier.Console
                         message += NotSupportedOnDs32(dataStandardVersion, options, Component.EPP);
                         message += NotSupportedOnPostgres(options, Component.Engage);
 
-                        if ( string.IsNullOrEmpty(message) )
+                        if (string.IsNullOrEmpty(message))
                         {
                             try
                             {
                                 (successful, message) = install?.Run(options.ConnectionString, options.TimeoutSeconds,
                                     options.Components?.ToArray()) ?? (false, "Install object is null.");
                             }
-                            catch ( Exception ex )
+                            catch (Exception ex)
                             {
                                 (successful, message) = (false, ex.ConcatenateInnerMessages());
                             }
@@ -158,13 +158,13 @@ namespace EdFi.AnalyticsMiddleTier.Console
                     }
                 }
 
-                if ( !successful )
+                if (!successful)
                 {
                     System.Console.WriteLine(string.Empty);
                     System.Console.WriteLine(message);
                     System.Console.WriteLine(string.Empty);
 
-                    if ( Debugger.IsAttached )
+                    if (Debugger.IsAttached)
                     {
                         System.Console.WriteLine("Press enter to continue.");
                         System.Console.ReadLine();
@@ -187,7 +187,7 @@ namespace EdFi.AnalyticsMiddleTier.Console
 
             static string NotSupportedOnDs2(DataStandard dataStandardVersion, Options options, Component collection)
             {
-                if ( dataStandardVersion == DataStandard.Ds2 && options.Components.Contains(collection) )
+                if (dataStandardVersion == DataStandard.Ds2 && options.Components.Contains(collection))
                 {
                     return $"The {collection} collection is not supported on Data Standard 2. Please remove this option and try again.";
                 }
@@ -197,7 +197,7 @@ namespace EdFi.AnalyticsMiddleTier.Console
 
             static string NotSupportedOnDs31(DataStandard dataStandardVersion, Options options, Component collection)
             {
-                if ( dataStandardVersion == DataStandard.Ds31 && options.Components.Contains(collection) )
+                if (dataStandardVersion == DataStandard.Ds31 && options.Components.Contains(collection))
                 {
                     return $"The {collection} collection is not supported on Data Standard 3.1. Please remove this option and try again.";
                 }
@@ -207,7 +207,7 @@ namespace EdFi.AnalyticsMiddleTier.Console
 
             static string NotSupportedOnDs32(DataStandard dataStandardVersion, Options options, Component collection)
             {
-                if ( dataStandardVersion == DataStandard.Ds32 && options.Components.Contains(collection) )
+                if (dataStandardVersion == DataStandard.Ds32 && options.Components.Contains(collection))
                 {
                     return $"The {collection} collection is not supported on Data Standard 3.2. Please remove this option and try again.";
                 }
@@ -217,8 +217,8 @@ namespace EdFi.AnalyticsMiddleTier.Console
 
             static string NotSupportedOnPostgres(Options options, Component collection)
             {
-                if ( (options.DatabaseEngine == Engine.Postgres || options.DatabaseEngine == Engine.Postgresql || options.DatabaseEngine == Engine.PostgreSQL)
-                    && options.Components.Contains(collection) )
+                if ((options.DatabaseEngine == Engine.Postgres || options.DatabaseEngine == Engine.Postgresql || options.DatabaseEngine == Engine.PostgreSQL)
+                    && options.Components.Contains(collection))
                 {
                     return $"The {collection} collection is not supported on Postgres. Please remove this option and try again.";
                 }

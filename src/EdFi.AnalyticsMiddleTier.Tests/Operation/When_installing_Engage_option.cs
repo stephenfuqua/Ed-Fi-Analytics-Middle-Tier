@@ -30,7 +30,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
         [SetUp]
         public void Act()
         {
-            if ( DataStandard.DataStandardEngine.Equals(Engine.MSSQL) )
+            if (DataStandard.DataStandardEngine.Equals(Engine.MSSQL))
             {
                 Result = DataStandard.Install(10, Component.Engage);
             }
@@ -58,7 +58,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
             [TestCase()]
             public void Then_result_success_should_be_true()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32) || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds33) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32) || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds33))
                 {
                     Assert.Ignore("The baseline DS32 database does not have the extension tables that are required to install the 'Engage' collection. This install will fail.");
                 }
@@ -71,7 +71,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
             [TestCase()]
             public void Then_error_message_should_be_null_or_empty()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32) || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds33) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32) || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds33))
                 {
                     Assert.Ignore("The baseline DS32 database does not have the extension tables that are required to install the 'Engage' collection. This install will fail.");
                 }
@@ -84,7 +84,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
             [Test]
             public void Then_should_not_be_installed()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32) || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds33) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32) || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds33))
                 {
                     Assert.Ignore("The baseline DS32 database does not have the extension tables that are required to install the 'Engage' collection. This install will fail.");
                 }
@@ -102,7 +102,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
             [TestCase()]
             public void Then_result_success_should_be_false()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32) || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds33) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32) || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds33))
                 {
                     Result.success.ShouldBe(false);
                 }
@@ -115,7 +115,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Operation
             [TestCase()]
             public void Then_there_should_be_an_error_message()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32) || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds33) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds32) || DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds33))
                 {
                     Result.errorMessage.ShouldNotBeNullOrEmpty();
                 }

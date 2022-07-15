@@ -47,7 +47,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.ClassPeriodDimTestGroup
             [Test]
             public void Then_should_not_return_any_record()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     (bool success, string errorMessage) testResult = DataStandard.RunTestCase<CountResult>($"{TestCasesFolder}.{DataStandard.DataStandardBaseVersionFolderName}.{_caseIdentifier}_should_not_return_any_record.xml");
                     testResult.success.ShouldBe(true, testResult.errorMessage);

@@ -738,7 +738,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests.Dimensions.StudentEarlyWarningFactTestG
             [Test]
             public void Then_should_have_IsAbsentFromHomeroomUnexcused_0()
             {
-                if ( DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2) )
+                if (DataStandard.DataStandardVersion.Equals(CommonLib.DataStandard.Ds2))
                 {
                     Assert.Ignore(
                         $"This testcase validates a filter from Data Standard 3x.");

@@ -39,9 +39,9 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 
         public override void PrepareDatabase()
         {
-            using ( var connection = new SqlConnection(_mainDatabaseConnectionString) )
+            using (var connection = new SqlConnection(_mainDatabaseConnectionString))
             {
-                if ( NotUsingSnapshots() )
+                if (NotUsingSnapshots())
                 {
                     Console.WriteLine("Not using snapshots for Analytics Middle Tier integration testing");
                     DropSnapshotIfItExists();
@@ -49,7 +49,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
                 }
                 else
                 {
-                    if ( TestDatabaseExists() && SnapshotExists() )
+                    if (TestDatabaseExists() && SnapshotExists())
                     {
                         ReloadFromSnapshotBackup();
                     }
@@ -67,7 +67,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
                     var noSnapshotsEnvVar = Environment.GetEnvironmentVariable(analyticsMiddleTierNoSnapshots)
                                                 ?? "false";
 
-                    if ( bool.TryParse(noSnapshotsEnvVar, out bool avoidSnapshot) )
+                    if (bool.TryParse(noSnapshotsEnvVar, out bool avoidSnapshot))
                     {
                         return avoidSnapshot;
                     }
@@ -102,7 +102,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
                 void LoadDacpac()
                 {
                     var dacService = new DacServices(_connectionString);
-                    using ( var dacpac = DacPackage.Load(GetDacFilePath()) )
+                    using (var dacpac = DacPackage.Load(GetDacFilePath()))
                     {
                         dacService.Deploy(dacpac, _databaseName, true, CreateDeployOptions());
                     }
@@ -148,7 +148,7 @@ namespace EdFi.AnalyticsMiddleTier.Tests
 #pragma warning restore CS8321 // Local function is declared but never used
                 {
                     // ReSharper disable once InvertIf - easier to read this way
-                    if ( SnapshotExists() )
+                    if (SnapshotExists())
                     {
                         var dropSnapshotHistory =
                             $"EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'{_snapshotName}'";
